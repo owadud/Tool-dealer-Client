@@ -6,11 +6,11 @@ const SecondQ = () => {
     return (
         <div className="blog">
             <h1 className="text-2xl text-center py-5 text-blue-500">2. What are the different ways to manage a state in a React apppcation?</h1>
-            <div class="bg-base-300 text-center">
+            <div className="bg-base-300 text-center">
                 
                     <h5 className="text-xl text-bold ">The Four Kinds of React State to Manage</h5>
-                    <div class="overflow-x-auto my-5">
-                        <table class="table w-full">
+                    <div className="overflow-x-auto my-5">
+                        <table className="table w-full">
                             
                             <thead>
                                 <tr>
@@ -31,7 +31,7 @@ const SecondQ = () => {
                                    
                                 </tr>
                                
-                                <tr class="hover">
+                                <tr className="hover">
                                     <th>2</th>
                                     <td>Global (UI) state</td>
                                     <td>Global state is necessary when we want to get and update data anywhere in our app, or in multiple components at least.</td>
@@ -54,10 +54,10 @@ const SecondQ = () => {
                         </table>
                     </div>
 
-                    <div class="divider">OR</div>
+                    <div className="divider"></div>
                 <div className="w-3/4 mx-auto ">
                     <h5 className='text-xl text-bold'>Way To Manage</h5>
-                    <div className='text-dark-500 py-5'>
+                    <div className='text-dark-500 text-left py-5'>
                    
                         <p>1. Local State- useState is the first tool but you can use another one useReducer.</p>
                         <p>2. Global State - Use Zustand,The benefit of a pbrary pke Zustand is that it is small, makes your entire global state a custom hook, and to read or update state, you just call this hook in your components. </p>
@@ -68,6 +68,8 @@ const SecondQ = () => {
                 </div>
                 
             </div>
+            
+
         </div>
     );
 };

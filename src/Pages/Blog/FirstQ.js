@@ -5,16 +5,16 @@ const FirstQ = () => {
     return (
         <div className="blog">
             <h1 className="text-2xl text-center py-5 text-blue-500">1. How will you improve the performance of a React Application?</h1>
-            <div class="flex flex-col w-full border-opacity-50">
-                <div class="grid h-auto py-5 card bg-base-300 rounded-box place-items-center">
+            <div className="flex flex-col w-full border-opacity-50">
+                <div className="grid h-auto py-5 card bg-base-300 rounded-box place-items-center">
                     <h5 className="text-xl text-bold">Use the Production Build</h5>
                     <ul>
                         <li>Check All Warning and solve them</li>
                         <li>Install React Developer Tools for Chrome for checking your build process</li>
                     </ul>
                 </div>
-                <div class="divider">OR</div>
-                <div class="grid h-auto py-5 card bg-base-300 rounded-box place-items-center">
+                <div className="divider"></div>
+                <div className="grid h-auto py-5 card bg-base-300 rounded-box place-items-center">
                     <h5 className='text-xl text-bold'>Install Some Package</h5>
                     <ul>
                         <li>For the most efficient Brunch production build, install the terser-brunch <span className="bg-green-500">npm install --save-dev terser-brunch</span></li>
