@@ -1,0 +1,10 @@
+.blog ul li{
+    list-style: normal;
+}
+.blog ul>li span{
+    margin-left:10px;
+}
+.blog h5{
+    padding: 10px 0;
+}
+

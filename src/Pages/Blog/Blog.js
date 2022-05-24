@@ -1,8 +1,14 @@
 import React from 'react';
+import FirstQ from './FirstQ';
+import SecondQ from './SecondQ';
+
 
 const Blog = () => {
     return (
-        <h1>Blog</h1>
+        <>
+        <FirstQ/>
+        <SecondQ/>
+        </>
     );
 };
 
