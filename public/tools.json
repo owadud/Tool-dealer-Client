@@ -1,6 +1,6 @@
 [
   {
-    "id": "628d054b9be37b710900a869",
+    "_id": "628d054b9be37b710900a869",
     "price": 50,
     "quantity": 50,
     "available": 500,
@@ -9,7 +9,7 @@
     "description": "Best Tools kit for home"
   },
   {
-    "id": "628d054b02ba3e707ec905f2",
+    "_id": "628d054b02ba3e707ec905f2",
     "price": 150,
     "quantity": 20,
     "available": 200,
@@ -18,7 +18,7 @@
     "description": "Needed Best kit for home"
   },
   {
-    "id": "628d054b6ffb37733b542695",
+    "_id": "628d054b6ffb37733b542695",
     "price": 40,
     "quantity": 50,
     "available": 500,
@@ -27,7 +27,7 @@
     "description": "kit for home"
   },
   {
-    "id": "628d054b047e07a71da39acc",
+    "_id": "628d054b047e07a71da39acc",
     "price": 10,
     "quantity": 50,
     "available": 500,
@@ -36,7 +36,7 @@
     "description": "Important Tools set"
   },
   {
-    "id": "628d054baf355295d37bb6a3",
+    "_id": "628d054baf355295d37bb6a3",
     "price": 30,
     "quantity": 30,
     "available": 500,
@@ -45,7 +45,7 @@
     "description": "Kitchen sink Tools"
   },
   {
-    "id": "628d054b8df5d3be6d2710c2",
+    "_id": "628d054b8df5d3be6d2710c2",
     "price": 20,
     "quantity": 50,
     "available": 500,
@@ -54,7 +54,7 @@
     "description": "Shower kit and tools"
   },
   {
-    "id": "628d054bd6c9945fca3fe132",
+    "_id": "628d054bd6c9945fca3fe132",
     "price": 25,
     "quantity": 10,
     "available": 200,
