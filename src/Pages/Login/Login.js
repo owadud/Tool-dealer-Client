@@ -1,16 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useSignInWithGoogle,useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
 
 const Login = () => {
+    const navigate = useNavigate();
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-    const [signInWithEmailAndPassword, user,loading,error] = useSignInWithGoogle(auth);
+    const [signInWithEmailAndPassword, user,loading,error] = useSignInWithEmailAndPassword(auth);
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
+        navigate('/');
     }
     let signInError;
     if (loading || gLoading) {
@@ -66,7 +68,7 @@ const Login = () => {
                             <label class="label">
                                 <span class="label-text">Password</span>
                             </label>
-                            <input type="text" placeholder="password" class="input input-bordered" 
+                            <input type="password" placeholder="password" class="input input-bordered" 
                              {...register("password", {
                                 required: {
                                     value: true,

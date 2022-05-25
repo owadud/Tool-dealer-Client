@@ -50,10 +50,10 @@ const Header = () => {
                         <ul tabIndex="0" className="bg-neutral menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                            
                                 <li>
-                                <a className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </a>
+                               
+                                    {user.displayName}
+                                    
+                               
                             </li>
                             <li><a>Settings</a></li>
                             <li><button className="btn btn-primary" onClick={logout}>Logout</button></li>
