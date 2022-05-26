@@ -1,5 +1,6 @@
 import './App.css';
 import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import HomePage from './Pages/HomePage/HomePage';
 import { Route, Routes } from 'react-router-dom';
 import Header from './Pages/Shared/Header';
@@ -11,6 +12,9 @@ import OrderPlace from './Pages/OrderPlace/OrderPlace';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/Login/SignUp';
 import RequireAuth from './Pages/Login/RequireAuth';
+import DashBoard from './Pages/DashBoard/DashBoard';
+import MyOrder from './Pages/DashBoard/MyOrder';
+import Review from './Pages/DashBoard/Review';
 
 function App() {
   return (
@@ -26,6 +30,14 @@ function App() {
         </RequireAuth>
         }>
           
+        </Route>
+        <Route path="dashboard" element={
+          <RequireAuth>
+            <DashBoard />
+        </RequireAuth>
+        }>
+          <Route index element={<MyOrder/>}></Route>
+          <Route path='review' element={<Review/>}></Route>
         </Route>
         
 

@@ -4,12 +4,14 @@ import { useNavigate } from 'react-router-dom';
 
 
 
+
 const ItemList = ({ item }) => {
     const { img, description, price, available, quantity, _id, company } = item;
     const navigate = useNavigate();
     const navigateOrder=(id)=>{
         
         navigate(`/order/${id}`);
+        
        
     }
     return (
@@ -29,6 +31,7 @@ const ItemList = ({ item }) => {
                     </svg>Buy Now</button>
                     
                 </div>
+                
             </div>
         </div>
     );

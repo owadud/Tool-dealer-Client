@@ -3,16 +3,22 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Loading from './Loading';
 
 const Header = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const logout=()=>{
         signOut(auth);
     }
+    if(loading){
+        return <Loading/>
+    }
+
     const menuItems = <>
 
         <li> <Link to="/myportfolio">My Portfolio</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
+        <li>{user && <Link to='/dashboard'>DashBoard</Link>}</li>
         <li>{!user && <Link to='/signup'>SigUp</Link>}</li>
         <li>{!user && <Link to='/login'>Login</Link>}</li>
 
@@ -43,7 +49,7 @@ const Header = () => {
                     <div className="dropdown dropdown-end ">
                         <label tabIndex="0" className="btn btn-ghost btn-circle avatar">
                             <div className="w-10 rounded-full">
-                                <img src="https://api.lorem.space/image/face?hash=33791" />
+                                <img src="https://api.lorem.space/image/face?hash=33791" alt='profile-img'/>
                             </div>
                         </label>
                        
