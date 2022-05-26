@@ -1,44 +1,95 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { useNavigate, useParams } from 'react-router-dom';
-import { ToastContainer } from 'react-toastify';
+import { useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import auth from '../../firebase.init';
 
 
 const OrderPlace = () => {
+
     const { id } = useParams();
-    const navigate = useNavigate();
-    const { register, handleSubmit } = useForm();
-  
-    const onSubmit = data =>{
-        data.preventDefault();
-        if(data){
-            navigate('/order/confirm');
-        }
-       
-        console.log(data);
-        
+    const [item, setItem] = useState({});
+    const {price,available,_id,company,quantity,} = item; 
+    const [user] = useAuthState(auth);
+   
+
+    const { register, handleSubmit,reset } = useForm();
+
+    useEffect(() => {
+
+        const url = `http://localhost:5000/order/${id}`;
+
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setItem(data))
+
+    }, [id]);
+
+
+    const handleChange = (event) => {
+           
+            const{quantity,...rest}= item;
+            const newQuantity =event.target.value;
+            const newItem = {quantity:newQuantity,...rest};
+            setItem(newItem); 
     }
     
-   
+
+    const onSubmit = event => {
+
+       
+        
+        const orders ={
+                orderId:_id,
+               customer:user.email,
+               price, available
+        
+            
+
+        }
+
+        fetch('http://localhost:5000/orders',{
+
+            method: 'POST',
+            headers:{
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(orders)
+
+        })
+        .then(res => res.json())
+        .then(data=>{
+            console.log(data);
+            toast.success('Order Placed successfully');
+           
+        })
+        reset();
+       
+    }
+
+  
+ 
 
 
     return (
         <div className='mx-auto w-1/2'>
 
-        <h2>Order Details</h2>
-        <form className='flex flex-col' onSubmit={handleSubmit(onSubmit)}>
+            <h2 className='text-center text-3xl text-blue-700'>Order Details</h2>
+            <form className='flex flex-col py-5' onSubmit={handleSubmit(onSubmit)}>
+                Email<input name='email' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={user.email} disabled control />
+                Product Name:<input name='name' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={company} disabled control />
 
-            <input className='mb-2 input input-bordered input-accent w-full max-w-xs'   placeholder='Publisher' {...register("supply", { required: true, maxLength: 20 })} required/>
-            <textarea className='mb-2 input input-bordered input-accent w-full max-w-xs'   placeholder='Description' {...register("description")} required />
-            <input className='mb-2 input input-bordered input-accent w-full max-w-xs'   placeholder='Price' type="number" {...register("price")}  required/>
-            <input className='mb-2 input input-bordered input-accent w-full max-w-xs'   placeholder='Email' type="text" {...register("email")}  required/>
-            <input className='mb-2 input input-bordered input-accent w-full max-w-xs'   placeholder='Phone Number' type="number" {...register("phone")}  required/>
-            <input className='mb-2 input input-bordered input-accent w-full max-w-xs'   placeholder='Quantity' type="number" {...register("quantity")}  required/>
-            <input className='mb-2 input input-bordered input-accent w-full max-w-xs'   placeholder='Photo URL' type="text" {...register("picture")} required />
-            <input  className="btn btn-active btn-success" type="submit" value="Continue" />
-        </form>
-        <ToastContainer />
-    </div>
+                Available Quantity: <input  name='available' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={available} type="number" {...register("available")} disabled control />
+                Minimum Quantity: <input name='orderQuantity' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={quantity} type="number" {...register("quantity")} onChange= {handleChange} placeholder="true"/>
+                Price(per item):  <input name='price' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={price} type="number" {...register("price")}  control disabled/>
+                Phone Number:<input name="phone" className='mb-2 input input-bordered input-accent w-full max-w-xs' placeholder='Phone Number' type="number"  required />
+                Address: <textarea name="address" className='mb-2 input input-bordered input-accent w-full max-w-xs' {...register("address")} required />
+
+                <input className="btn btn-active btn-success" type="submit" value="Order" />
+            </form>
+           
+        </div>
     );
 };
 

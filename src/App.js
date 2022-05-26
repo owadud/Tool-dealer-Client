@@ -8,9 +8,9 @@ import Footer from './Pages/Shared/Footer';
 import NotFound from './Pages/NotFound/NotFound';
 import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 import OrderPlace from './Pages/OrderPlace/OrderPlace';
-import ConfirmOrder from './Pages/OrderPlace/ConfirmOrder';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/Login/SignUp';
+import RequireAuth from './Pages/Login/RequireAuth';
 
 function App() {
   return (
@@ -20,8 +20,14 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="blog" element={<Blog />} />
         <Route path="myportfolio" element={<MyPortfolio />} />
-        <Route path="/order/:id" element={<OrderPlace />}></Route>
-        <Route path="/order/confirm" element={<ConfirmOrder />} />
+        <Route path="/order/:id" element={
+          <RequireAuth>
+            <OrderPlace />
+        </RequireAuth>
+        }>
+          
+        </Route>
+        
 
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
