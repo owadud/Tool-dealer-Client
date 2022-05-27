@@ -17,6 +17,7 @@ import MyOrder from './Pages/DashBoard/MyOrder';
 import Review from './Pages/DashBoard/Review';
 import MyProfile from './Pages/DashBoard/MyProfile';
 import Customers from './Pages/DashBoard/Customers';
+import RequireAdmin from './Pages/Login/RequireAdmin';
 
 function App() {
   return (
@@ -41,7 +42,7 @@ function App() {
           <Route index element={<MyOrder/>}></Route>
           <Route path='profile' element={<MyProfile/>}></Route>
           <Route path='review' element={<Review/>}></Route>
-          <Route path='customers' element={<Customers/>}></Route>
+          <Route path='customers' element={<RequireAdmin><Customers/></RequireAdmin>}></Route>
         </Route>
         
 

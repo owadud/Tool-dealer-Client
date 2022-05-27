@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 
 const OrderPlace = () => {
-
+    const navigate = useNavigate();
     const { id } = useParams();
     const [item, setItem] = useState({});
     const { price, available, _id, company, quantity, } = item;
@@ -74,10 +74,11 @@ const OrderPlace = () => {
             .then(result => {
                if(result.success){
                 toast.success('Order Placed successfully');
-                reset();
+               navigate('/dashboard');
                }
                 else{
-                    toast.error('Order already exists')
+                    toast.error('Order already exists');
+                    navigate('/');
                 }
 
             })
