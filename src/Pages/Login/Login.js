@@ -4,10 +4,13 @@ import auth from '../../firebase.init';
 import { useSignInWithGoogle,useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import Loading from '../Shared/Loading';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
     const navigate = useNavigate();
     const location = useLocation();
+
+   
 
     let from = location.state?.from?.pathname || "/"; 
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
@@ -17,6 +20,7 @@ const Login = () => {
         signInWithEmailAndPassword(data.email, data.password);
        
     }
+    const [token] =useToken(gUser||user);
     let signInError;
     if (loading || gLoading) {
         return <Loading></Loading>
@@ -25,17 +29,17 @@ const Login = () => {
     if(error || gError){
         signInError= <p className='text-red-500'><small>{error?.message || gError?.message }</small></p>
     }
-    if(user || gUser){
+    if(token){
         navigate(from,{replace: true});
 
     }
     return (
-        <div class="hero  py-10 bg-base-200">
-            <div class="hero-content flex-col lg:flex-row-reverse">
-                <div class="text-center lg:text-left">
-                    <h1 class="text-3xl font-bold py-5">Login now! or Continue with </h1>
+        <div className="hero  py-10 bg-base-200">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="text-center lg:text-left">
+                    <h1 className="text-3xl font-bold py-5">Login now! or Continue with </h1>
 
-                    <button onClick={() => signInWithGoogle()} class="btn btn-primary px-20">Google
+                    <button onClick={() => signInWithGoogle()} className="btn btn-primary px-20">Google
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                         </svg>
@@ -43,14 +47,14 @@ const Login = () => {
 
 
                 </div>
-                <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <div class="card-body">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card-body">
                         <form onSubmit={handleSubmit(onSubmit)}>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Email</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Email</span>
                             </label>
-                            <input type="text" placeholder="email" class="input input-bordered" 
+                            <input type="text" placeholder="email" className="input input-bordered" 
                             {...register("email", {
                                 required: {
                                     value: true,
@@ -67,11 +71,11 @@ const Login = () => {
                                 {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
                             </label>
                         </div>
-                        <div class="form-control">
-                            <label class="label">
-                                <span class="label-text">Password</span>
+                        <div className="form-control">
+                            <label className="label">
+                                <span className="label-text">Password</span>
                             </label>
-                            <input type="password" placeholder="password" class="input input-bordered" 
+                            <input type="password" placeholder="password" className="input input-bordered" 
                              {...register("password", {
                                 required: {
                                     value: true,
@@ -87,19 +91,19 @@ const Login = () => {
                                 {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                             </label>
-                            <label class="label">
-                                <a href="#" class="label-text-alt link link-hover">Forgot password?</a>
+                            <label className="label">
+                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                             
                         </div>
-                        <div class="form-control mt-6">
-                            <button class="btn btn-primary">Login</button>
+                        <div className="form-control mt-6">
+                            <button className="btn btn-primary">Login</button>
                         </div>
                         {signInError}
                         </form>
-                        <div class="divider">Don't Have an Account?</div>
-                        <div class="form-control">
-                            <Link to="/signup" class="btn btn-primary" > SignUp</Link>
+                        <div className="divider">Don't Have an Account?</div>
+                        <div className="form-control">
+                            <Link to="/signup" className="btn btn-primary" > SignUp</Link>
                       
                         </div>
                     </div>

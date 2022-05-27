@@ -18,7 +18,7 @@ const ToolItems = () => {
 
     return (
         <div className='tools'>
-            <h1 className="text-4xl text-center py-5 text-blue-900">Please Book your Item before Stock out</h1>
+            <h1 className="text-4xl text-center py-5 text-blue-900">Please Order your Item before Stock out</h1>
             <div className='py-5 grid lg:grid-cols-3  gap-5 py-10 sm:grid-cols-1'>
                 {
                     items.map(item =><ItemList 
