@@ -15,7 +15,7 @@ const SignUp = () => {
     const navigate = useNavigate();
     const { register, formState: { errors }, handleSubmit } = useForm();
     const [createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth);
-    const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+    const [updateProfile] = useUpdateProfile(auth);
 
     const [token] = useToken(user);
     const onSubmit = async data => {
