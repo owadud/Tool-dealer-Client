@@ -24,12 +24,38 @@ const CustomerRow = ({customer,index,refetch}) => {
             
         })
     }
+
+    const removeUser = ()=>{
+        fetch(`http://localhost:5000/user/${email}`,{
+                    method: 'DELETE',
+                    headers: {
+                       
+                        authorization:`Bearer ${localStorage.getItem('accessToken')}`
+                    }
+                   
+                })
+                .then(res => res.json())
+                .then(deleteUser=>{
+                        // console.log(deleteUser);
+
+                    if(deleteUser.deletedCount){
+                        toast.success(`${email} user is successfully Deleted`);
+                        
+                        refetch();
+                    }
+                    else{
+                        toast.error('Deleted Failed, Try again')
+                    }
+                   
+                })
+    }
+
     return (
         <tr>
         <th>{index+1}</th>
         <td>{email}</td>
         <td>{role !=='admin'&& <button onClick={makeAdmin} class="btn btn-outline btn-success">Make Admin</button>}</td>
-        <td><button class="btn btn-outline btn-error">Remove Customer</button></td>
+        <td><button onClick={removeUser} class="btn btn-outline btn-error">Remove Customer</button></td>
     </tr>
     );
 };
