@@ -18,7 +18,7 @@ const OrderPlace = () => {
 
     useEffect(() => {
 
-        const url = `http://localhost:5000/order/${id}`;
+        const url = `https://intense-ridge-54730.herokuapp.com/order/${id}`;
 
         fetch(url)
             .then(res => res.json())
@@ -61,7 +61,7 @@ const OrderPlace = () => {
 
         }
 
-        fetch('http://localhost:5000/orders', {
+        fetch('https://intense-ridge-54730.herokuapp.com/orders', {
 
             method: 'POST',
             headers: {
@@ -99,7 +99,7 @@ const OrderPlace = () => {
                 Product Company:<input name='company' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={company} {...register("company")} disabled  />
 
                 Available Quantity: <input name='available' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={available} type="number" {...register("available")} disabled  />
-                Minimum Quantity: <input name='quantity' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={quantity} type="number" {...register("quantity")} onChange={handleChange} placeholder="true" min="0"/>
+                Minimum Quantity: <input name='quantity' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={quantity} type="number" {...register("quantity")} onChange={handleChange}  min="0"/>
 
                 Price(per item):  <input name='price' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={price} type="number" {...register("price")}  disabled />
                 Phone Number:<input name="phone" className='mb-2 input input-bordered input-accent w-full max-w-xs' placeholder='Phone Number' type="number" {...register("phone")} required />

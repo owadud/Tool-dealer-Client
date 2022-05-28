@@ -9,7 +9,7 @@ const ToolItems = () => {
     
 
     useEffect(() => {
-        fetch('http://localhost:5000/tools')
+        fetch('https://intense-ridge-54730.herokuapp.com/tools')
             .then(res => res.json())
             .then(data => 
                 setItem(data));

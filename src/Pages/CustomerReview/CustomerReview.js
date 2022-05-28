@@ -9,7 +9,7 @@ const CustomerReview = () => {
     
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://intense-ridge-54730.herokuapp.com/reviews')
             .then(res => res.json())
             .then(data => 
                 setReview(data));
@@ -22,7 +22,7 @@ const CustomerReview = () => {
             <div className='py-5 grid lg:grid-cols-3  gap-5 py-10 sm:grid-cols-1'>
                 {
                     reviews.map(r =><DisplayReview 
-                    key={reviews._id} r={r} > 
+                    key={r._id} r={r} > 
 
                     </DisplayReview>)
                 }

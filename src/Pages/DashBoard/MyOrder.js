@@ -12,7 +12,7 @@ const MyOrder = () => {
 
     useEffect(() => {
         if (user) {
-            const url = `http://localhost:5000/orders?customer=${user.email}`;
+            const url = `https://intense-ridge-54730.herokuapp.com/orders?customer=${user.email}`;
             fetch(url,{
                 method: 'GET',
                 headers:{

@@ -16,7 +16,7 @@ const Review = () => {
          name:displayName,
            review:data.review
         }
-       fetch('http://localhost:5000/reviews', {
+       fetch('https://intense-ridge-54730.herokuapp.com/reviews', {
 
             method: 'POST',
             headers: {

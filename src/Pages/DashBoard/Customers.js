@@ -7,7 +7,7 @@ import CustomerRow from './CustomerRow';
 const Customers = () => {
 
     const {data:customers, isLoading,refetch} = useQuery('customers',()=>
-        fetch('http://localhost:5000/customers',{
+        fetch('https://intense-ridge-54730.herokuapp.com/customers',{
             method: 'GET',
             headers:{
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -36,7 +36,7 @@ const Customers = () => {
                    {
                        customers.map((customer,index)=><CustomerRow
                        key={customer._id} index={index}
-                       customer={customer} refetch={refetch}
+                       customer={customer} refetch={refetch} isLoading={isLoading}
                       
                        ></CustomerRow>)
                    }

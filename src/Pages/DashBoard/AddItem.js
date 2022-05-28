@@ -9,7 +9,7 @@ const AddItem = () => {
 
     const uploadImgStorageKey =' 66d70bdb5afe5ff5f244e9c741cfc950';
 
-    const {data:tools,isLoading}= useQuery('tool',()=>fetch('http://localhost:5000/tool').then(res=>res.json()));
+    const {data:tools,isLoading}= useQuery('tool',()=>fetch('https://intense-ridge-54730.herokuapp.com/tool').then(res=>res.json()));
     if(isLoading){
         return <Loading></Loading>
     }
@@ -42,7 +42,7 @@ const AddItem = () => {
 
                 //Sending data to database
 
-                fetch('http://localhost:5000/tools',{
+                fetch('https://intense-ridge-54730.herokuapp.com/tools',{
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json',
