@@ -14,7 +14,7 @@ const OrderPlace = () => {
     const [user] = useAuthState(auth);
 
 
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit } = useForm();
 
     useEffect(() => {
 
@@ -50,7 +50,7 @@ const OrderPlace = () => {
             orderId: _id,
             customer: user.email,
             price, available,
-            name: company,
+            company,
             orderQuantity: Number(quantity
             ),
             address: data.address,
@@ -95,13 +95,13 @@ const OrderPlace = () => {
 
             <h2 className='text-center text-3xl text-blue-700'>Order Details</h2>
             <form className='flex flex-col py-5' onSubmit={handleSubmit(onSubmit)}>
-                Email<input name='email' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={user.email} {...register("email")} disabled control />
-                Product Name:<input name='name' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={company} {...register("name")} disabled control />
+                Email<input name='email' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={user.email} {...register("email")} disabled  />
+                Product Company:<input name='company' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={company} {...register("company")} disabled  />
 
-                Available Quantity: <input name='available' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={available} type="number" {...register("available")} disabled control />
+                Available Quantity: <input name='available' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={available} type="number" {...register("available")} disabled  />
                 Minimum Quantity: <input name='quantity' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={quantity} type="number" {...register("quantity")} onChange={handleChange} placeholder="true" min="0"/>
 
-                Price(per item):  <input name='price' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={price} type="number" {...register("price")} control disabled />
+                Price(per item):  <input name='price' className='mb-2 input input-bordered input-accent w-full max-w-xs' value={price} type="number" {...register("price")}  disabled />
                 Phone Number:<input name="phone" className='mb-2 input input-bordered input-accent w-full max-w-xs' placeholder='Phone Number' type="number" {...register("phone")} required />
                 Address: <textarea name="address" className='mb-2 input input-bordered input-accent w-full max-w-xs' {...register("address")} required />
 
