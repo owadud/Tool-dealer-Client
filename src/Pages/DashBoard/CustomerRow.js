@@ -2,7 +2,7 @@ import React from 'react';
 import { toast } from 'react-toastify';
 
 const CustomerRow = ({customer,index,refetch}) => {
-    const { email,role,name } = customer;
+    const { email,role } = customer;
     const makeAdmin =()=>{
         fetch(`http://localhost:5000/user/admin/${email}`,{
             method: 'PUT',

@@ -10,11 +10,16 @@ const AddItem = () => {
     const uploadImgStorageKey =' 66d70bdb5afe5ff5f244e9c741cfc950';
 
     const {data:tools,isLoading}= useQuery('tool',()=>fetch('http://localhost:5000/tool').then(res=>res.json()));
+    if(isLoading){
+        return <Loading></Loading>
+    }
     const onSubmit = async data => {
         // console.log(data);
         const image = data.img[0];
         const formData = new FormData();
         formData.append('image', image);
+
+      
         const url =`https://api.imgbb.com/1/upload?key=${uploadImgStorageKey}`;
 
         fetch(url,{
@@ -40,7 +45,8 @@ const AddItem = () => {
                 fetch('http://localhost:5000/tools',{
                     method: 'POST',
                     headers: {
-                        'content-type': 'application/json'
+                        'content-type': 'application/json',
+                        authorization:`Bearer ${localStorage.getItem('accessToken')}`
                     },
                     body: JSON.stringify(tool)
                 })
@@ -63,9 +69,7 @@ const AddItem = () => {
         })
     }
 
-    if(isLoading){
-        return <Loading></Loading>
-    }
+    
     return (
         <div>
             <h1 className="text-xl text-gray-600">Add Item</h1>
