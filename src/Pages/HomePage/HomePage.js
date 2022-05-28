@@ -1,4 +1,5 @@
 import React from 'react'
+import CustomerReview from '../CustomerReview/CustomerReview';
 import Footer from '../Shared/Footer';
 import Banner from './Banner';
 import ExtraSection from './ExtraSection';
@@ -11,6 +12,7 @@ function HomePage() {
        <>
        <Banner/>
        <ToolItems/>
+       <CustomerReview/>
        <Summary/>
        <ExtraSection/>
        

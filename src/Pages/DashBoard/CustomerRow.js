@@ -39,7 +39,7 @@ const CustomerRow = ({customer,index,refetch}) => {
                         // console.log(deleteUser);
 
                     if(deleteUser.deletedCount){
-                        toast.success(`${email} user is successfully Deleted`);
+                        toast.success(`${email} is successfully Deleted`);
                         
                         refetch();
                     }
