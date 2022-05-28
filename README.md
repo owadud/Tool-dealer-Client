@@ -5,4 +5,4 @@
 
 # user can place order, give review, also check his orders
 
-# Admin can manage, delete, add products 
+# Admin can manage, delete, add products and remove user. 
