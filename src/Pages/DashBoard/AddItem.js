@@ -75,7 +75,7 @@ const AddItem = () => {
             <h1 className="text-xl text-gray-600">Add Item</h1>
             <form className='flex flex-col py-5' onSubmit={handleSubmit(onSubmit)}>
 
-                Product Company:<select name='company' class="select w-full text-black-700 max-w-xs" {...register("company")}>
+                Product Company:<select name='company' className="select w-full text-black-700 max-w-xs" {...register("company")}>
 
                
                 {   
