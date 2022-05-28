@@ -7,7 +7,7 @@ const ManageRow = ({ tool,refetch,setItemDeleted }) => {
     return (
 
         <tr>
-            <th><div class="w-24 rounded">
+            <th><div className="w-24 rounded">
                 <img src={img} alt="item" />
             </div>
             </th>
@@ -16,7 +16,7 @@ const ManageRow = ({ tool,refetch,setItemDeleted }) => {
 
             <td>{price}</td>
             <td>{available}</td>
-          <td>  <label onClick={() =>setItemDeleted(tool)} htmlFor="delete-item" class="btn btn-outline btn-warning">Delete</label></td> 
+          <td>  <label onClick={() =>setItemDeleted(tool)} htmlFor="delete-item" className="btn btn-outline btn-warning">Delete</label></td> 
             
         </tr>
 

@@ -32,14 +32,14 @@ const ItemDeleteModal = ({itemDelete,refetch,setItemDeleted}) => {
         <div>
 
             
-            <input type="checkbox" id="delete-item" class="modal-toggle" />
-            <div class="modal modal-bottom sm:modal-middle">
-                <div class="modal-box">
-                    <h3 class="font-bold text-lg">Are you sure you want to delete {company}?</h3>
-                    <p class="py-4">You can undo this by clicking delete.</p>
-                    <div class="modal-action">
-                    <button class="btn btn-outline btn-warning" onClick={()=>DeleteItem(_id)}>Delete</button>
-                        <label htmlFor="delete-item" class="btn">Cancel</label>
+            <input type="checkbox" id="delete-item" className="modal-toggle" />
+            <div className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg">Are you sure you want to delete {company}?</h3>
+                    <p className="py-4">You can undo this by clicking delete.</p>
+                    <div className="modal-action">
+                    <button className="btn btn-outline btn-warning" onClick={()=>DeleteItem(_id)}>Delete</button>
+                        <label htmlFor="delete-item" className="btn">Cancel</label>
                     </div>
                 </div>
             </div>

@@ -1,24 +1,33 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import DisplayReview from './DisplayReview';
 
 const CustomerReview = () => {
+
+    
+    const [reviews, setReview] = useState([]);
+
+    
+
+    useEffect(() => {
+        fetch('http://localhost:5000/reviews')
+            .then(res => res.json())
+            .then(data => 
+                setReview(data));
+            
+    }, []);
     return (
         <div>
             <h1 className="text-2xl text-center py-5 text-green-700">Customer Review</h1>
-            <div class="card w-96 bg-primary text-primary-content">
-                <div class="card-body">
-                    <h2 class="card-title">Card title!</h2>
-                    <p>If a dog chews shoes whose shoes does he choose?</p>
-                    <div class="card-actions justify-end">
-                        <button class="btn"><div class="rating">
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" />
-                            <input type="radio" name="rating-2" class="mask mask-star-2 bg-orange-400" checked />
-                        </div></button>
-                    </div>
-                </div>
+
+            <div className='py-5 grid lg:grid-cols-3  gap-5 py-10 sm:grid-cols-1'>
+                {
+                    reviews.map(r =><DisplayReview 
+                    key={reviews._id} r={r} > 
+
+                    </DisplayReview>)
+                }
             </div>
+           
         </div>
     );
 };

@@ -54,8 +54,8 @@ const CustomerRow = ({customer,index,refetch}) => {
         <tr>
         <th>{index+1}</th>
         <td>{email}</td>
-        <td>{role !=='admin'&& <button onClick={makeAdmin} class="btn btn-outline btn-success">Make Admin</button>}</td>
-        <td><button onClick={removeUser} class="btn btn-outline btn-error">Remove Customer</button></td>
+        <td>{role !=='admin'&& <button onClick={makeAdmin} className="btn btn-outline btn-success">Make Admin</button>}</td>
+        <td><button onClick={removeUser} className="btn btn-outline btn-error">Remove Customer</button></td>
     </tr>
     );
 };
