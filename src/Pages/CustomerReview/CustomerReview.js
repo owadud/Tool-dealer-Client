@@ -9,7 +9,7 @@ const CustomerReview = () => {
     
 
     useEffect(() => {
-        fetch('https://intense-ridge-54730.herokuapp.com/reviews')
+        fetch('https://toolwarehouse.onrender.com/reviews')
             .then(res => res.json())
             .then(data => 
                 setReview(data));

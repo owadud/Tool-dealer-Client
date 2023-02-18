@@ -5,7 +5,7 @@ const ItemDeleteModal = ({itemDelete,refetch,setItemDeleted}) => {
     const {company,_id}=itemDelete;
 
     const DeleteItem = (id)=>{
-        fetch(`https://intense-ridge-54730.herokuapp.com/tools/${id}`,{
+        fetch(`https://toolwarehouse.onrender.com/tools/${id}`,{
                     method: 'DELETE',
                     headers: {
                        

@@ -20,6 +20,7 @@ import Customers from './Pages/DashBoard/Customers';
 import RequireAdmin from './Pages/Login/RequireAdmin';
 import AddItem from './Pages/DashBoard/AddItem';
 import ManageItems from './Pages/DashBoard/ManageItems';
+import Payment from './Pages/DashBoard/Payment';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route index element={<MyOrder/>}></Route>
           <Route path='profile' element={<MyProfile/>}></Route>
           <Route path='review' element={<Review/>}></Route>
+          <Route path='payment/:id' element={<Payment/>}></Route>
           <Route path='customers' element={<RequireAdmin><Customers/></RequireAdmin>}></Route>
           <Route path='additem' element={<RequireAdmin><AddItem/></RequireAdmin>}></Route>
           <Route path='manageitem' element={<RequireAdmin><ManageItems/></RequireAdmin>}></Route>

@@ -8,7 +8,7 @@ const CustomerRow = ({ customer, index, refetch, isLoading }) => {
         return <Loading></Loading>
     }
     const makeAdmin = () => {
-        fetch(`https://intense-ridge-54730.herokuapp.com/user/admin/${email}`, {
+        fetch(`https://toolwarehouse.onrender.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`
@@ -34,7 +34,7 @@ const CustomerRow = ({ customer, index, refetch, isLoading }) => {
     }
 
     const removeUser = () => {
-        fetch(`https://intense-ridge-54730.herokuapp.com/user/${email}`, {
+        fetch(`https://toolwarehouse.onrender.com/user/${email}`, {
             method: 'DELETE',
             headers: {
 

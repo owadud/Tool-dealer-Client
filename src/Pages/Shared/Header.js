@@ -20,7 +20,7 @@ const Header = () => {
         <li> <Link to="/myportfolio">My Portfolio</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
         <li>{user && <Link to='/dashboard'>DashBoard</Link>}</li>
-        <li>{!user && <Link to='/signup'>SigUp</Link>}</li>
+        <li>{!user && <Link to='/signup'>Sign-Up</Link>}</li>
         <li>{!user && <Link to='/login'>Login</Link>}</li>
 
 

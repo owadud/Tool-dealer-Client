@@ -18,7 +18,7 @@ const OrderPlace = () => {
 
     useEffect(() => {
 
-        const url = `https://intense-ridge-54730.herokuapp.com/order/${id}`;
+        const url = `https://toolwarehouse.onrender.com/order/${id}`;
 
         fetch(url)
             .then(res => res.json())
@@ -61,7 +61,7 @@ const OrderPlace = () => {
 
         }
 
-        fetch('https://intense-ridge-54730.herokuapp.com/orders', {
+        fetch('https://toolwarehouse.onrender.com/orders', {
 
             method: 'POST',
             headers: {

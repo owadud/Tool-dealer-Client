@@ -7,7 +7,7 @@ import CustomerRow from './CustomerRow';
 const Customers = () => {
 
     const {data:customers, isLoading,refetch} = useQuery('customers',()=>
-        fetch('https://intense-ridge-54730.herokuapp.com/customers',{
+        fetch('https://toolwarehouse.onrender.com/customers',{
             method: 'GET',
             headers:{
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

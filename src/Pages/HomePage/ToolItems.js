@@ -9,7 +9,7 @@ const ToolItems = () => {
     
 
     useEffect(() => {
-        fetch('https://intense-ridge-54730.herokuapp.com/tools')
+        fetch('https://toolwarehouse.onrender.com/tools')
             .then(res => res.json())
             .then(data => 
                 setItem(data));

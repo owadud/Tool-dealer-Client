@@ -1,7 +1,7 @@
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const MyOrder = () => {
@@ -12,7 +12,7 @@ const MyOrder = () => {
 
     useEffect(() => {
         if (user) {
-            const url = `https://intense-ridge-54730.herokuapp.com/orders?customer=${user.email}`;
+            const url = `https://toolwarehouse.onrender.com/orders?customer=${user.email}`;
             fetch(url,{
                 method: 'GET',
                 headers:{
@@ -33,7 +33,7 @@ const MyOrder = () => {
                     setOrder(data);
                 });
         }
-    }, [user])
+    }, [user,navigate])
 
 
 
@@ -49,6 +49,7 @@ const MyOrder = () => {
                             <th>Product Company</th>
                             <th>Ordered Quantity</th>
                             <th>Price(per item)</th>
+                            <th>Payment</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,6 +60,9 @@ const MyOrder = () => {
                                 <td>{order.company}</td>
                                 <td>{order.orderQuantity}</td>
                                 <td>{order.price}</td>
+                                <td>{(order.price && !order.paid) && <Link to={`/dashboard/payment/${order._id}`}><button class="btn btn-xs btn-success">Pay</button></Link>}
+                                {(order.price && !order.paid) && <span className='text-success'>paid</span>}
+                                </td>
                             </tr>)
                         }
                        

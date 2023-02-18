@@ -16,7 +16,7 @@ const Review = () => {
          name:displayName,
            review:data.review
         }
-       fetch('https://intense-ridge-54730.herokuapp.com/reviews', {
+       fetch('https://toolwarehouse.onrender.com/reviews', {
 
             method: 'POST',
             headers: {

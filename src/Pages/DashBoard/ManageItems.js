@@ -7,7 +7,7 @@ import ManageRow from './ManageRow';
 const ManageItems = () => {
     const [itemDelete,setItemDeleted] = useState(null);
 
-    const {data:tools,isLoading,refetch}= useQuery('tool',()=>fetch('https://intense-ridge-54730.herokuapp.com/tools',{
+    const {data:tools,isLoading,refetch}= useQuery('tool',()=>fetch('https://toolwarehouse.onrender.com/tools',{
         headers: {
             
             authorization:`Bearer ${localStorage.getItem('accessToken')}`
